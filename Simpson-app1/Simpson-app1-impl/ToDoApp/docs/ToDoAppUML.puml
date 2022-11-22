@@ -1,0 +1,89 @@
+@startuml
+class ToDoItem {
+      - final int itemID
+      - final SimpleStringProperty itemName
+      - final LocalDate itemDueDate
+      - final SimpleStringProperty itemDetails
+      - final CheckBox completionStatus
+--
+  + ToDoItem(String name, LocalDate date, String details)
+  + ToDoItem(String name, LocalDate date, String details, boolean selection)
+  + ToDoItem(String name, LocalDate date, String details, boolean selection, int id)
+..
+Getter methods
+  + String getItemName()
+  + LocalDate getItemDueDate()
+  + String getItemDueDateString()
+  + String getItemDetails()
+  + Boolean getCompletionStatusBoolean()
+  + int getItemID()
+}
+MainWindowController -- ToDoItem
+
+class Application {
+Launching methods
+ + void start(Stage stage)
+ + static void main(String[] args)
+}
+
+class MainWindowController {
+  Storage lists:
+      List<ToDoItem> allItems
+      ObservableList<ToDoItem> viewedItems
+  ..
+  @FXML Items:
+       - MenuItem saveBtn
+       - MenuItem uploadBtn
+       - Button showCompletedBtn
+       - Button showIncompleteBtn
+       - Button showAllBtn
+       - Label errorLabel
+       - CheckBox completionStatusBtn
+       - DatePicker itemDateBox
+       - TextField itemDetailBox
+       - TextField itemNameBox
+       - Button itemSelectBtn
+       - Button itemEditBtn
+       - Button itemAddBtn
+       - Button itemRemoveBtn
+       - Button clearAllItemsBtn
+       - TableView<ToDoItem> itemTable
+            - TableColumn<ToDoItem, CheckBox> completionColumn
+            - TableColumn<ToDoItem, String> nameColumn
+            - TableColumn<ToDoItem, LocalDate> dateColumn
+            - TableColumn<ToDoItem, String> detailColumn
+  --
+    @FXML actions:
+        + void initialize(URL url, ResourceBundle rb)
+        - void saveList(ActionEvent event)
+        - void uploadList(ActionEvent event)
+        - void setShowCompleted(ActionEvent event)
+        - void setShowIncomplete(ActionEvent event)
+        - void setShowAll(ActionEvent event)
+        - void selectItemFromList(ActionEvent event)
+        - void addItemToList(ActionEvent event)
+        - void editItemFromList(ActionEvent event)
+        - void deleteItemFromList(ActionEvent event)
+        - void clearList(ActionEvent event)
+  --
+    Hidden actions:
+        - void generateSaveFile(String filePath)
+        - void parseListFile(String filePath)
+        - ObservableList<ToDoItem> getViewedItemList()
+        - boolean validateTextSize(int textSize)
+        - int getIndexOfID(int id)
+        - void resetInformationEntryFields()
+}
+Application -- MainWindowController
+MainWindowController *-- Initializable
+
+class Initializable {
+Overridden from StringConverter :
+--
+final String pattern = "yyyy-MM-dd"
+final DateTimeFormatter dateFormatter
+..
+ + String toString(LocalDate date)
+ + LocalDate fromString(String string)
+}
+@enduml

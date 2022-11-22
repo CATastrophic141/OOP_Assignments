@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class WordFrequency {
+ # SortedMap<String, Integer> wordCount
+
+ # void countWords(File fileName)
+ # void printResults()
+ - private LinkedHashMap<String, Integer> convertToSortedMap(TreeMap<String, Integer> words)
+}
+
+class Solution46 {
+ + static void main(String[] args)
+}
+
+WordFrequency -- Solution46
+@enduml

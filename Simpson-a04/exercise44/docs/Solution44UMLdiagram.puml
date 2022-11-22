@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class ItemSearcher {
+ # HashMap<String ,String[]> catalogue
+ - String foundItemName;
+ - String[] foundItemDetails;
+
+ - static String readFileAsString(String file)
+ # void parseJSONCatalogue()
+ - boolean isInCatalogue(String itemName)
+ # void findItem()
+ # void printFoundItem()
+}
+
+class Solution44 {
+ + static void main(String[] args)
+}
+
+ItemSearcher -- Solution44
+@enduml

@@ -1,0 +1,154 @@
+@startuml
+class ToDoItem {
+  - String itemName
+  - String itemDueDate
+  - String itemDetails
+--
+  + ToDoItem(String name, String date, String details)
+..
+Setter methods
+  + void setItemName(String name)
+  + void setDueDate(String date)
+  + void setDetails(String details)
+..
+Getter methods
+  + String getItemName()
+  + String getDueDate()
+  + String getItemDetails()
+}
+
+class ToDoList {
+  - String listName
+  # ArrayList<ToDoItem> itemList
+--
+  + void setListName(String name)
+..
+  + String getListName()
+}
+ToDoList *-- ToDoItem
+Application -- ToDoList
+
+class Application {
+  # ArrayList<ToDoList> listList
+  # ToDoItem listItem
+  # boolean showCompleted
+  # boolean showIncomplete
+--
+Launching methods
+  + void start(Stage stage)
+  + static void main(String[] args)
+}
+
+class MainWindowController {
+    @FXML Items
+        - MenuItem saveBtn;
+        - MenuItem uploadBtn;
+        - Label dateText;
+        - Label detailText;
+        - CheckBox hideCompletedBtn;
+        - CheckBox hideIncompleteBtn;
+        - Label itemNameText;
+        - Button listOfItemsAddBtn;
+        - ListView<?> listOfListsList;
+        - Button listOfItemsEditBtn;
+        - Button listOfItemsRmvBtn;
+        - Button listOfListAddBtn;
+        - ListView<?> listOfItemsList;
+        - Button listOfListEditBtn;
+        - Button listOfListRmvBtn;
+  --
+    @FXML actions
+        - void saveList()
+        - void openUploadPrompt()
+        - void setDateText()
+        - void setDetailText()
+        - void setHideCompletedBtn()
+        - void setHideIncompleteBtnBtn()
+        - void setItemNameText()
+        - void selectFromListOfItems()
+        - void useListOfItemsAddBtn()
+        - void useListOfItemsEditBtn()
+        - void useListOfItemsRmvBtn()
+        - void selectFromListOfList()
+        - void useListOfListEditBtn()
+        - void useListOfListRmvBtn()
+        - void useListOfListAddBtn()
+}
+Application -- MainWindowController
+
+class ListPromptADDController {
+    @FXML items
+       - Button itemPromptOkADDBtn;
+       - TextField itemDateTextBoxDADD;
+       - TextField itemDateTextBoxMADD;
+       - TextField itemDateTextBoxYADD;
+       - TextField itemDetailsTextBoxADD;
+       - TextField itemNameTextBoxADD;
+--
+    @FXML actions
+      - void createList()
+}
+MainWindowController -- ListPromptADDController
+
+class ListPromptEDITController {
+    @FXML items
+      - TextField listNameEDITBox;
+      - Button listNameEDITOkBtn;
+--
+    @FXML actions
+      - void editListName(ToDoList listEntry)
+}
+MainWindowController -- ListPromptEDITController
+
+class ItemPromptADDController {
+    @FXML items
+      - Button itemPromptOkADDBtn;
+      - TextField itemDateTextBoxDADD;
+      - TextField itemDateTextBoxMADD;
+      - TextField itemDateTextBoxYADD;
+      - TextField itemDetailsTextBoxADD;
+      - TextField itemNameTextBoxADD;
+--
+    @FXML actions
+      - void createItem(ToDoList listEntry)
+}
+MainWindowController -- ItemPromptADDController
+
+class ItemPromptEDITController {
+    @FXML items
+      - Button itemPromptOkEDITBtn;
+      - CheckBox IsCompleteBtn;
+      - TextField itemDateTextBoxD_EDIT;
+      - TextField itemDateTextBoxM_EDIT;
+      - TextField itemDateTextBoxY_EDIT;
+      - TextField itemDetailsTextBox_EDIT;
+      - TextField itemNameTextBox_EDIT;
+--
+    @FXML actions
+      - void editItem(ToDoList listEntry, ToDoItem itemEntry)
+}
+MainWindowController -- ItemPromptEDITController
+
+class SavePromptController {
+    @FXML items
+      - ComboBox<?> saveList;
+      - TextField savePath;
+      - TextField fileNameText;
+      - Button fileSaveOkBtn;
+--
+    @FXML actions
+      - void saveList()
+}
+MainWindowController -- SavePromptController
+
+class UploadPromptController {
+    @FXML items
+      - TextField uploadPath;
+      - Button fileUploadOkBtn;
+--
+    @FXML actions
+      - void uploadList()
+}
+
+MainWindowController -- UploadPromptController
+@enduml
