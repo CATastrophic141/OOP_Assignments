@@ -1,0 +1,1 @@
+This is a repository of completed assignments from UCF's Object Oriented Programming course, made in Java. Each subrepository is a collection of individual programs. Details may be found in the respective program files

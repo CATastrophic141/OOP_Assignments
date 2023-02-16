@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="base.MainWindowControllerTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2021-11-21T18:23:51" hostname="ZEPHYRUS-COBALT" time="0.041">
+  <properties/>
+  <testcase name="testItemValueGetter()" classname="base.MainWindowControllerTest" time="0.018"/>
+  <testcase name="testInvalidateItemValue()" classname="base.MainWindowControllerTest" time="0.001"/>
+  <testcase name="testHMTLFileGeneration()" classname="base.MainWindowControllerTest" time="0.001"/>
+  <testcase name="testIDIndexRetrieval()" classname="base.MainWindowControllerTest" time="0.0"/>
+  <testcase name="testItemIDGetter()" classname="base.MainWindowControllerTest" time="0.0"/>
+  <testcase name="testHTMLFileReading()" classname="base.MainWindowControllerTest" time="0.003"/>
+  <testcase name="testInvalidateItemCode()" classname="base.MainWindowControllerTest" time="0.001"/>
+  <testcase name="testInvalidateItemName()" classname="base.MainWindowControllerTest" time="0.001"/>
+  <testcase name="testItemCodeGetter()" classname="base.MainWindowControllerTest" time="0.0"/>
+  <testcase name="testCODEIndexRetrieval()" classname="base.MainWindowControllerTest" time="0.0"/>
+  <testcase name="testTSVFileReading()" classname="base.MainWindowControllerTest" time="0.001"/>
+  <testcase name="testItemNameGetter()" classname="base.MainWindowControllerTest" time="0.001"/>
+  <testcase name="testTXTFileGeneration()" classname="base.MainWindowControllerTest" time="0.001"/>
+  <testcase name="testJSONFileGeneration()" classname="base.MainWindowControllerTest" time="0.005"/>
+  <testcase name="testJSONFileReading()" classname="base.MainWindowControllerTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
